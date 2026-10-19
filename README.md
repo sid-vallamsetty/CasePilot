@@ -11,10 +11,11 @@ structured investigation results.
 python -m pip install -e ".[dev]"
 python -m pytest
 casepilot
+casepilot --demo
 ```
 
-The virtual environment is intentionally created without third-party packages. Add the chosen
-model and embedding SDK only after selecting a provider.
+Copy `.env.example` to `.env` and add your Gemini key before running the demo. A normal
+`casepilot` invocation performs no API call; `casepilot --demo` consumes API quota.
 
 ## Project map
 
@@ -52,4 +53,11 @@ Host authorization + case/account scope
 The model never grants itself access. Host code filters documents, binds account identifiers,
 validates tool arguments, and blocks consequential actions unless an explicit approval record
 is valid.
+
+## Structured result boundary
+
+Gemini is given `CaseResponse` as a JSON response schema. Pydantic first validates the shape and
+types. A separate host validator then checks facts the schema cannot know: the case ID must match,
+account evidence must cite a transaction actually exposed by the tool, inference references must
+exist, and every recommendation must remain marked as requiring human approval.
 

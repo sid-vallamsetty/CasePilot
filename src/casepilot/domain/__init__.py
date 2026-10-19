@@ -2,17 +2,19 @@ from casepilot.domain.models import (
     Approval,
     CaseRequest,
     CaseResponse,
-    Citation,
-    Finding,
-    FindingKind,
+    EvidenceItem,
+    EvidenceSource,
+    InferenceItem,
+    RecommendationItem,
 )
 
 __all__ = [
     "Approval",
     "CaseRequest",
     "CaseResponse",
-    "Citation",
-    "Finding",
-    "FindingKind",
+    "EvidenceItem",
+    "EvidenceSource",
+    "InferenceItem",
+    "RecommendationItem",
 ]
 

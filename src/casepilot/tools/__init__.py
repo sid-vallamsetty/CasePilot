@@ -1,4 +1,4 @@
-from casepilot.tools.account_service import AccountReader, Transaction
+from casepilot.tools.account_service import AccountReader, InMemoryAccountReader, Transaction
 
-__all__ = ["AccountReader", "Transaction"]
+__all__ = ["AccountReader", "InMemoryAccountReader", "Transaction"]
 
